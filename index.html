@@ -13,14 +13,37 @@
 body { background-color: #fafafa; line-height:1.6;}
 .lead { font-size: 1.5rem; font-weight: 300; }
 .container { margin: 150px auto; max-width: 960px; }
-.beforeAfter { height: 450px; }
-.beforeAfter img.before{ 
-    filter: grayscale(1);
-}
+
+
 img{
 	object-fit: cover;
 	object-position: center;
-	height: 450px;
+}
+
+.beforeAfter img.before{ 
+    filter: grayscale(1);
+}
+
+
+:root{
+	--height: 450px;
+}
+.beforeAfter,
+.beforeAfter img { 
+	height: var(--height);
+}
+
+@media(max-width: 1200px){
+	.beforeAfter,
+	.beforeAfter img { 
+		height: calc( var(--height) / 1.5 );
+	}
+}
+@media(max-width: 767px){
+	.beforeAfter,
+	.beforeAfter img { 
+		height: calc( var(--height) / 1.8 );
+	}
 }
 </style>
 </head>
@@ -45,16 +68,7 @@ img{
             clickMove: true,
             position: 50,
             separatorColor: '#fed100',
-            bulletColor: '#fed100'
-            // onMoveStart: function(e) {
-            //     console.log(event.target);
-            // },
-            // onMoving: function() {
-            //     console.log(event.target);
-            // },
-            // onMoveEnd: function() {
-            //     console.log(event.target);
-            // },
+            bulletColor: '#fed100' 
         });
     </script>
     
